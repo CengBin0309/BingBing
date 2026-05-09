@@ -19,8 +19,10 @@ let weightedAverage (parts: Part list) =
         Some(num / wSum)
 
 let parsePart (label: string) (wText: string) (sText: string) =
+    let lab = label.Trim()
+
     match Double.TryParse(wText), Double.TryParse(sText) with
-    | (true, w), (true, s) when w >= 0.0 && s >= 0.0 && s <= 100.0 -> Some { Label = label; Weight = w; Score = s }
+    | (true, w), (true, s) when w >= 0.0 && s >= 0.0 && s <= 100.0 -> Some { Label = lab; Weight = w; Score = s }
     | _ -> None
 
 let daysUntil (fromDate: DateTime) (deadline: DateTime) =
@@ -52,3 +54,22 @@ let defaultParts =
             Score = 0.0
         }
     ]
+
+/// `weightCompleted` and `weightFinal` are shares of the whole course (they need not sum to 1; they are normalised).
+/// Returns the minimum final mark in \[0,100\] needed for `targetOverall` if it is reachable with a single final component.
+let neededFinalMark (avgCompleted: float) (weightCompleted: float) (weightFinal: float) (targetOverall: float) =
+    let wSum = weightCompleted + weightFinal
+
+    if wSum <= 0.0 || weightFinal <= 0.0 then
+        None
+    else
+        let wc = weightCompleted / wSum
+        let wf = weightFinal / wSum
+        let raw = (targetOverall - wc * avgCompleted) / wf
+
+        if raw > 100.0 then
+            None
+        elif raw < 0.0 then
+            Some 0.0
+        else
+            Some raw

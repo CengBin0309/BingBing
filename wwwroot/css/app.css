@@ -30,6 +30,11 @@ body {
 .brand { font-weight: 700; color: var(--accent2); text-decoration: none; font-size: 1.1rem; }
 nav a { color: var(--muted); margin-left: 1rem; text-decoration: none; }
 nav a:hover { color: var(--text); }
+nav a:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
 .wrap { max-width: 900px; margin: 0 auto; padding: 2rem 1.25rem 4rem; }
 .hero h1 { font-size: 2rem; line-height: 1.2; margin: 0 0 0.75rem; }
 .lead { color: var(--muted); max-width: 52ch; }
