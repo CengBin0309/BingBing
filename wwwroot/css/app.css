@@ -8,6 +8,7 @@
   --warn: #ffb454;
 }
 * { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
 body {
   margin: 0;
   font-family: "Segoe UI", system-ui, sans-serif;
