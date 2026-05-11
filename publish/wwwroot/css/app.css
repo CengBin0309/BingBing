@@ -1,0 +1,73 @@
+:root {
+  --bg: #0f1419;
+  --card: #1a2332;
+  --text: #e8eef7;
+  --muted: #9aa8bc;
+  --accent: #5b8cff;
+  --accent2: #3dd6c3;
+  --warn: #ffb454;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  font-family: "Segoe UI", system-ui, sans-serif;
+  background: radial-gradient(1200px 600px at 20% -10%, #1e2a3d, var(--bg));
+  color: var(--text);
+  min-height: 100vh;
+}
+.top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid #243044;
+  position: sticky;
+  top: 0;
+  background: rgba(15, 20, 25, 0.92);
+  backdrop-filter: blur(8px);
+}
+.brand { font-weight: 700; color: var(--accent2); text-decoration: none; font-size: 1.1rem; }
+nav a { color: var(--muted); margin-left: 1rem; text-decoration: none; }
+nav a:hover { color: var(--text); }
+nav a:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+.wrap { max-width: 900px; margin: 0 auto; padding: 2rem 1.25rem 4rem; }
+.hero h1 { font-size: 2rem; line-height: 1.2; margin: 0 0 0.75rem; }
+.lead { color: var(--muted); max-width: 52ch; }
+.actions { margin-top: 1.5rem; display: flex; flex-wrap: wrap; gap: 0.75rem; }
+.btn {
+  display: inline-block;
+  padding: 0.55rem 1rem;
+  border-radius: 8px;
+  text-decoration: none;
+  border: 1px solid #334155;
+  color: var(--text);
+}
+.btn.primary { background: var(--accent); border-color: transparent; color: #0b1020; font-weight: 600; }
+.btn.primary:hover { filter: brightness(1.05); }
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; margin-top: 2rem; }
+.grid article {
+  background: var(--card);
+  padding: 1rem 1.1rem;
+  border-radius: 12px;
+  border: 1px solid #243044;
+}
+.card {
+  background: var(--card);
+  padding: 1.5rem;
+  border-radius: 14px;
+  border: 1px solid #243044;
+}
+.tbl { width: 100%; border-collapse: collapse; margin: 1rem 0; }
+.tbl th, .tbl td { padding: 0.45rem; border-bottom: 1px solid #243044; text-align: left; }
+.tbl input { width: 100%; padding: 0.35rem; border-radius: 6px; border: 1px solid #334155; background: #0f1419; color: var(--text); }
+.muted { color: var(--muted); }
+.banner { background: #243044; padding: 0.65rem 0.85rem; border-radius: 8px; margin-bottom: 1rem; }
+.banner.warn { border-left: 4px solid var(--warn); }
+.big { font-size: 2.4rem; font-weight: 700; margin: 0.5rem 0; }
+.foot { text-align: center; color: var(--muted); font-size: 0.85rem; padding: 2rem 1rem; }
